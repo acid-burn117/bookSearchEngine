@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
   Jumbotron,
   Container,
@@ -55,6 +55,9 @@ const SavedBooks = () => {
           <h1>Viewing saved books!</h1>
         </Container>
       </Jumbotron>
+      {loading ? (
+        <div>Loading...</div>
+      ) : (
       <Container>
         <h2>
           {userData.savedBooks.length
@@ -88,8 +91,10 @@ const SavedBooks = () => {
               </Card>
             );
           })}
+            {error && <div>Something went wrong...</div>}
         </CardColumns>
       </Container>
+  )}
     </>
   );
 };
